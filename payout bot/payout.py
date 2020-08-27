@@ -1,9 +1,9 @@
-import requests 
+import requests
 
-GroupIds = ()
+groupIds = []
 cookie = open('cookie.txt','r').readline().strip()
 
-print('Payout Group')
+print('Group Payouts')
 
 req = requests.Session()
 req.cookies['.ROBLOSECURITY'] = cookie
@@ -14,7 +14,7 @@ try:
    r = req.post('https://www.roblox.com/api/item.ashx?')
    req.headers['X-CSRF-TOKEN'] = r.headers['X-CSRF-TOKEN']
 except:
-   input('Invalid Cookie! Can''t run checker. \nPress enter to exit...')
+   input('Invalid Cookie! Can''t run checker.\nPress enter to exit...')
    exit()
 
 percent = int(input('What percent of funds do you want to give? '))
